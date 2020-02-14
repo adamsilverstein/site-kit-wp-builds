@@ -1,0 +1,16 @@
+name: Remove release on PR close.
+
+on:
+  repository_dispatch:
+
+jobs:
+  remove-pr-release:
+    if: github.event.action == 'removepr'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delete working release
+      uses: author/action-rollback@stable
+      with:
+        tag: pr-${{ github.ref }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
