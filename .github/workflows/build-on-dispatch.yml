@@ -59,7 +59,7 @@ jobs:
     - name: Update release
       uses: johnwbyrd/update-release@v1.0.0
       with:
-        release: pr-${{ github.ref }}
-        tag: pr-${{ github.ref }}
+        release: pr-${{ github.event.client_payload.ref }}
+        tag: pr-${{ github.event.client_payload.ref }}
         token: ${{ secrets.GITHUB_TOKEN }}
         files: google-site-kit.zip google-site-kit-dev.zip
