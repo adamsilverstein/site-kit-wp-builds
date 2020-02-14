@@ -8,7 +8,7 @@ jobs:
     if: github.event.action == 'buildpr'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         repository: adamsilverstein/site-kit-wp
         ref: ${{ github.event.client_payload.ref }}    
